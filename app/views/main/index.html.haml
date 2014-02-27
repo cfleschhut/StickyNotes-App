@@ -1,2 +1,13 @@
+%script{ type: 'text/template', id: 'template-note' }
+  <p class="note-datetime">
+  <%= (new Date(created_at)).toDateString() %>
+  </p>
+  <h3 class="note-title">
+  <%= title %>
+  </h3>
+  <a href="/notes/<%= id %>" class="note-permalink">
+  Permalink
+  </a>
+
 #container
   Loading…
