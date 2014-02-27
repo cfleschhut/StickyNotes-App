@@ -5,8 +5,8 @@
   <h3 class="note-title">
   <%= title %>
   </h3>
-  <a href="/notes/<%= id %>" class="note-permalink">
-  Permalink
+  <a href="/notes/<%= id %>" class="note-permalink" title="Permalink">
+  &infin;
   </a>
 
 = content_tag 'div', 'Loading…', id: 'container', data: { notes: Note.all }

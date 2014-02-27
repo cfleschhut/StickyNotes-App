@@ -1,5 +1,7 @@
 /* Notes */
 
+$note-background-color: hsl(60, 100%, 90%);
+
 .notes {
   margin: 0;
   padding: 10px;
@@ -14,13 +16,27 @@
   float: left;
   margin: 10px;
   padding: 20px;
-  background: hsl(60, 100%, 90%);
+  background: $note-background-color;
 }
+
 .note-datetime {
   margin: 0 0 10px;
+  font-size: $font-size-small;
 }
+
+.note-title {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.2;
+  height: 136px;
+  overflow: hidden;
+}
+
 .note-permalink {
-  color: #333;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: $font-size-small;
+  color: $text-color;
   text-decoration: none;
-  font-size: 75%;
 }
