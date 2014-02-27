@@ -69,7 +69,7 @@ $(document).ready(function() {
       console.log('route: init');
 
       this.notes = new NoteList();
-      this.notes.fetch({reset: true});
+      this.notes.reset($('#container').data('notes'));
     },
 
     index: function() {

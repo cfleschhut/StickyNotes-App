@@ -1,3 +1,26 @@
-// Place all the styles related to the notes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/* Notes */
+
+.notes {
+  margin: 0;
+  padding: 10px;
+  list-style: none;
+  overflow: hidden;
+}
+
+.note {
+  position: relative;
+  width: 160px;
+  min-height: 160px;
+  float: left;
+  margin: 10px;
+  padding: 20px;
+  background: hsl(60, 100%, 90%);
+}
+.note-datetime {
+  margin: 0 0 10px;
+}
+.note-permalink {
+  color: #333;
+  text-decoration: none;
+  font-size: 75%;
+}
