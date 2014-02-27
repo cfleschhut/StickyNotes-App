@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+source 'https://rails-assets.org/'
 
 gem 'rails', '4.0.3'
 
@@ -13,3 +14,6 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 1.2'
 
 gem 'quiet_assets'
+
+gem 'rails-assets-underscore'
+gem 'rails-assets-backbone'
