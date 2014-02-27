@@ -1,22 +1,23 @@
 /* Notes */
 
-$note-background-color: hsl(60, 100%, 90%);
+$note-background-color-01: hsl(60, 100%, 90%);
+$note-background-color-02: hsl(60, 100%, 75%);
 
 .notes {
   margin: 0;
-  padding: 10px;
+  padding: 0;
   list-style: none;
   overflow: hidden;
 }
 
 .note {
+  @include linear-gradient($note-background-color-01, $note-background-color-02);
   position: relative;
-  width: 160px;
-  min-height: 160px;
+  width: 200px;
+  min-height: 200px;
   float: left;
-  margin: 10px;
+  margin: 0 10px 20px;
   padding: 20px;
-  background: $note-background-color;
 }
 
 .note-datetime {

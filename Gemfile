@@ -13,8 +13,11 @@ gem 'jquery-rails'
 
 gem 'jbuilder', '~> 1.2'
 
-gem 'quiet_assets'
+gem 'bourbon'
+gem 'neat'
 
 gem 'rails-assets-underscore'
 gem 'rails-assets-backbone'
 gem 'rails-assets-moment'
+
+gem 'quiet_assets'

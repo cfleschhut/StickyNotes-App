@@ -69,7 +69,7 @@ $(document).ready(function() {
       console.log('route: init');
 
       this.notes = new NoteList();
-      this.notes.reset($('#container').data('notes'));
+      this.notes.reset($('#notes').data('notes'));
     },
 
     index: function() {
@@ -79,7 +79,7 @@ $(document).ready(function() {
         collection: this.notes
       });
       console.log(this.notesView.collection);
-      $('#container').html(this.notesView.render().el);
+      $('#notes').html(this.notesView.render().el);
     }
   });
 
