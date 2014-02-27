@@ -1,6 +1,6 @@
 %script{ type: 'text/template', id: 'template-note' }
   <p class="note-datetime">
-  <%= (new Date(created_at)).toDateString() %>
+  <%= moment(created_at).fromNow() %>
   </p>
   <h3 class="note-title">
   <%= title %>

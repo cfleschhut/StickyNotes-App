@@ -76,6 +76,7 @@ GEM
       sprockets-rails (~> 2.0.0)
     rails-assets-backbone (1.1.2)
       rails-assets-underscore (>= 1.5.0)
+    rails-assets-moment (2.5.1)
     rails-assets-underscore (1.6.0)
     railties (4.0.3)
       actionpack (= 4.0.3)
@@ -121,6 +122,7 @@ DEPENDENCIES
   quiet_assets
   rails (= 4.0.3)
   rails-assets-backbone
+  rails-assets-moment
   rails-assets-underscore
   sass-rails (~> 4.0.0)
   sqlite3
