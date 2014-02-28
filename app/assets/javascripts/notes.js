@@ -37,6 +37,9 @@ $(document).ready(function() {
     tagName: 'li',
     className: 'note',
     template: _.template($('#template-note').html()),
+    events: {
+      'click .note-permalink': 'navigate'
+    },
     initialize: function() {
       this.model.on('change', this.render, this);
       this.model.on('destroy', this.remove, this);
@@ -48,6 +51,12 @@ $(document).ready(function() {
     },
     remove: function() {
       this.$el.remove();
+    },
+    navigate: function(ev) {
+      ev.preventDefault();
+      Backbone.history.navigate($(ev.target).attr('href'), {
+        trigger: true
+      });
     },
     updateTime: function(time) {
       var element = time,
@@ -179,6 +188,8 @@ $(document).ready(function() {
     },
 
     show: function(id) {
+      console.log('route: show');
+
       var view = new NoteView({
         tagName: 'div',
         model: this.notes.get(id)
