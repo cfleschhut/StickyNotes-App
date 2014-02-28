@@ -1,12 +1,64 @@
-$text-color: #333;
+$font-family-sans: 'Helvetica Neue', Arial, sans-serif;
 $font-size-small: 12px;
+$text-color: #333;
+
+$button-background-color: hsl(170, 75%, 50%);
+$button-background-color-hover: hsl(170, 80%, 45%);
 
 body {
   margin: 0;
   padding: 0;
-  font: 100%/1.2 'Helvetica Neue', sans-serif;
+  font: 100%/1.2 $font-family-sans;
   color: $text-color;
   background: #fff;
+}
+
+header {
+  margin: 0 0 20px;
+  background: #333;
+  overflow: hidden;
+
+  h1 {
+    float: left;
+    margin: 0;
+    font-size: 20px;
+    font-weight: 300;
+
+    a {
+      display: block;
+      padding: 10px;
+      color: #eee;
+      text-decoration: none;
+    }
+  }
+}
+
+form {
+  textarea {
+    width: 100%;
+    min-height: 116px;
+    margin: 0 0 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    font: 700 14px $font-family-sans;
+    color: $text-color;
+  }
+
+  .button {
+    display: inline-block;
+    width: 100%;
+    margin: 0;
+    padding: 10px 0;
+    background: $button-background-color;
+    border: none;
+    color: #fff;
+    font: 700 12px $font-family-sans;
+    text-transform: uppercase;
+    border-radius: 4px;
+    &:hover {
+      background: $button-background-color-hover;
+    }
+  }
 }
 
 .container {

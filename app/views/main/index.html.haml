@@ -1,12 +1,14 @@
+%script{ type: 'text/template', id: 'template-new-note' }
+  %form.form.note-new-form
+    %textarea{ placeholder: 'New Note…', autofocus: 'autofocus' }
+    %input{ type: 'submit', value: 'Save', class: 'button' }
+
 %script{ type: 'text/template', id: 'template-note' }
-  <p class="note-datetime">
-  <%= moment(created_at).fromNow() %>
-  </p>
-  <h3 class="note-title">
-  <%= title %>
-  </h3>
-  <a href="/notes/<%= id %>" class="note-permalink" title="Permalink">
-  &infin;
-  </a>
+  %p.note-datetime
+    <%= moment(created_at).fromNow() %>
+  %h3.note-title
+    <%= title %>
+  %a{ href: '/notes/<%= id %>', class: 'note-permalink', title: 'Permalink' }
+    &infin;
 
 = content_tag 'div', 'Loading…', id: 'notes', data: { notes: Note.all }

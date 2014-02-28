@@ -58,6 +58,26 @@ $(document).ready(function() {
   });
 
 
+  var NoteFormView = Backbone.View.extend({
+    tagName: 'li',
+    attributes: {
+      class: 'note'
+    },
+    events: {
+      'submit form': 'createNote'
+    },
+    template: _.template($('#template-new-note').html()),
+    render: function() {
+      this.$el.html(this.template());
+      return this;
+    },
+    createNote: function(ev) {
+      ev.preventDefault();
+      console.log(this);
+    }
+  });
+
+
   // Router
 
   var App = Backbone.Router.extend({
@@ -78,8 +98,10 @@ $(document).ready(function() {
       this.notesView = new NotesView({
         collection: this.notes
       });
-      console.log(this.notesView.collection);
       $('#notes').html(this.notesView.render().el);
+
+      var formView = new NoteFormView();
+      $('.notes').append(formView.render().el);
     }
   });
 
