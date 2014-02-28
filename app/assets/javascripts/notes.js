@@ -153,7 +153,8 @@ $(document).ready(function() {
 
   var App = Backbone.Router.extend({
     routes: {
-      '': 'index'
+      '': 'index',
+      'notes/:id': 'show'
     },
 
     initialize: function() {
@@ -175,6 +176,14 @@ $(document).ready(function() {
         collection: this.notes
       });
       $('.notes').prepend(formView.render().el);
+    },
+
+    show: function(id) {
+      var view = new NoteView({
+        tagName: 'div',
+        model: this.notes.get(id)
+      });
+      $('#notes').html(view.render().el);
     }
   });
 
