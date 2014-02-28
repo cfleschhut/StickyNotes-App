@@ -4,6 +4,7 @@ $text-color: #333;
 
 $button-background-color: hsl(170, 75%, 50%);
 $button-background-color-hover: hsl(170, 90%, 40%);
+$button-background-color-disabled: desaturate($button-background-color, 25%);
 
 body {
   margin: 0;
@@ -45,26 +46,36 @@ form {
     background: transparent;
     outline: none;
   }
-
-  .button {
-    display: inline-block;
-    width: 100%;
-    margin: 0;
-    padding: 10px 0;
-    background: $button-background-color;
-    border: none;
-    color: #fff;
-    font: 700 12px $font-family-sans;
-    text-transform: uppercase;
-    border-radius: 4px;
-    outline: none;
-    &:hover {
-      background: $button-background-color-hover;
-    }
-  }
 }
 
 .container {
   max-width: 1100px;
   margin: 0 auto;
+}
+
+
+/* Buttons */
+
+.button {
+  display: inline-block;
+  margin: 0;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font: 700 12px $font-family-sans;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  background: $button-background-color;
+  outline: none;
+}
+
+.button-block {
+  width: 100%;
+}
+
+.button-disabled {
+  opacity: 0.4;
+  background: $button-background-color-disabled;
 }

@@ -60,6 +60,12 @@ $(document).ready(function() {
       var noteView = new NoteView({
         model: model
       });
+
+      var newNoteForm = this.$el.find('#note-new');
+      if(newNoteForm.length) {
+        newNoteForm.after(noteView.render().el);
+        return;
+      }
       this.$el.prepend(noteView.render().el);
     }
   });
@@ -68,25 +74,54 @@ $(document).ready(function() {
   var NoteFormView = Backbone.View.extend({
     tagName: 'li',
     attributes: {
-      class: 'note'
-    },
-    events: {
-      'submit form': 'createNote'
+      class: 'note',
+      id: 'note-new'
     },
     template: _.template($('#template-new-note').html()),
+    events: {
+      'keyup textarea': 'validateTextarea',
+      'submit form': 'createNote'
+    },
+    submitBtn: null,
     render: function() {
       this.$el.html(this.template());
       return this;
     },
+    validateTextarea: function(ev) {
+      var textarea = ev.target;
+      this.submitBtn = this.$el.find('input[type=submit]');
+
+      if(!textarea.value.match(/^\s*$/)) {
+        this.submitBtnEnable();
+      } else {
+        this.submitBtnDisable();
+      }
+    },
+    submitBtnEnable: function() {
+      this.submitBtn
+        .prop('disabled', false)
+        .removeClass('button-disabled');
+    },
+    submitBtnDisable: function() {
+      this.submitBtn
+        .prop('disabled', true)
+        .addClass('button-disabled');
+    },
+    resetForm: function() {
+      $('#note-new form')[0].reset();
+      this.submitBtnDisable();
+    },
     createNote: function(ev) {
       ev.preventDefault();
-      var attributes = {
-        title: $(ev.target).find('textarea').val()
-      };
-      app.notes.create(attributes, {
+      var that = this,
+        attributes = {
+          title: $(ev.target).find('textarea').val()
+        };
+      this.collection.create(attributes, {
         wait: true,
         success: function() {
           console.log('success');
+          that.resetForm();
         },
         error: function() {
           console.log('error');
@@ -118,7 +153,9 @@ $(document).ready(function() {
       });
       $('#notes').html(this.notesView.render().el);
 
-      var formView = new NoteFormView();
+      var formView = new NoteFormView({
+        collection: this.notes
+      });
       $('.notes').prepend(formView.render().el);
     }
   });

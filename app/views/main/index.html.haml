@@ -1,7 +1,7 @@
 %script{ type: 'text/template', id: 'template-new-note' }
   %form.form.note-new-form
     %textarea{ name: 'title', placeholder: 'New Note…', autofocus: 'autofocus' }
-    %input{ type: 'submit', value: 'Save', class: 'button' }
+    %input{ type: 'submit', value: 'Save', disabled: 'disabled', class: 'button button-block button-disabled' }
 
 %script{ type: 'text/template', id: 'template-note' }
   %p.note-datetime
