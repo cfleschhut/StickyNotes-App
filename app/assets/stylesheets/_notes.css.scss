@@ -13,11 +13,20 @@ $note-background-color-02: hsl(60, 100%, 75%);
 .note {
   @include linear-gradient($note-background-color-01, $note-background-color-02);
   position: relative;
-  width: 200px;
-  min-height: 200px;
+  width: 18%;
   float: left;
-  margin: 0 10px 20px;
+  margin: 0 1% 20px;
   padding: 20px;
+
+  @include media($mobile) {
+    width: 280px;
+    height: 280px;
+    float: none;
+    margin: 0 auto 20px;
+    textarea {
+      min-height: 196px;
+    }
+  }
 }
 
 .note-datetime {
