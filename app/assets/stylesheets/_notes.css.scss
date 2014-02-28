@@ -30,6 +30,7 @@ $note-background-color-02: hsl(60, 100%, 75%);
 }
 
 .note-datetime {
+  display: block;
   margin: 0 0 10px;
   font-size: $font-size-small;
 }

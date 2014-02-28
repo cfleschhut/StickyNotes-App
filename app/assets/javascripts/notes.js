@@ -1,3 +1,10 @@
+// Settings
+
+_.templateSettings = {
+  interpolate: /\{\{(.+?)\}\}/g
+};
+
+
 // Models
 
 var Note = Backbone.Model.extend({
@@ -36,10 +43,21 @@ $(document).ready(function() {
     },
     render: function() {
       this.$el.html(this.template(this.model.attributes));
+      this.updateTime(this.$el.find('time'));
       return this;
     },
     remove: function() {
       this.$el.remove();
+    },
+    updateTime: function(time) {
+      var element = time,
+        datetime = element.attr('datetime');
+      var update = function() {
+        var new_value = moment(datetime).fromNow();
+        element.html(new_value);
+      };
+      update();
+      setInterval(update, 1000);
     }
   });
 

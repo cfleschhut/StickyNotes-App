@@ -4,10 +4,11 @@
     %input{ type: 'submit', value: 'Save', disabled: 'disabled', class: 'button button-block button-disabled' }
 
 %script{ type: 'text/template', id: 'template-note' }
-  %p.note-datetime
-    <% if(created_at) { print(moment(created_at).fromNow()) } %>
+  %time.note-datetime{ datetime: '{{ created_at }}' }
+    {{ created_at }}
   %h3.note-title
-    <%= title %>
-  <a href="/notes/<%= id %>" class="note-permalink" title="Permalink">&infin;</a>
+    {{ title }}
+  %a.note-permalink{ href: '/notes/{{ id }}', title: 'Permalink' }
+    &infin;
 
 = content_tag 'div', 'Loading…', id: 'notes', data: { notes: Note.all }
