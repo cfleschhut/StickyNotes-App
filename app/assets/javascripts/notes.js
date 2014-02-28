@@ -1,17 +1,24 @@
 // Models
 
-var Note = Backbone.Model.extend();
+var Note = Backbone.Model.extend({
+  // defaults: {
+  //   id: null,
+  //   title: null,
+  //   created_at: null,
+  //   updated_at: null
+  // }
+});
 
 
 // Collections
 
 var NoteList = Backbone.Collection.extend({
   model: Note,
-  url: 'api/notes',
+  url: 'api/notes'
 
-  comparator: function(note) {
-    return -note.get('id');
-  }
+  // comparator: function(note) {
+  //   return -note.get('id');
+  // }
 });
 
 
@@ -53,7 +60,7 @@ $(document).ready(function() {
       var noteView = new NoteView({
         model: model
       });
-      this.$el.append(noteView.render().el);
+      this.$el.prepend(noteView.render().el);
     }
   });
 
@@ -73,7 +80,18 @@ $(document).ready(function() {
     },
     createNote: function(ev) {
       ev.preventDefault();
-      console.log(this);
+      var attributes = {
+        title: $(ev.target).find('textarea').val()
+      };
+      app.notes.create(attributes, {
+        wait: true,
+        success: function() {
+          console.log('success');
+        },
+        error: function() {
+          console.log('error');
+        }
+      });
     }
   });
 
@@ -101,7 +119,7 @@ $(document).ready(function() {
       $('#notes').html(this.notesView.render().el);
 
       var formView = new NoteFormView();
-      $('.notes').append(formView.render().el);
+      $('.notes').prepend(formView.render().el);
     }
   });
 

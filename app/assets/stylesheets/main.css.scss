@@ -3,7 +3,7 @@ $font-size-small: 12px;
 $text-color: #333;
 
 $button-background-color: hsl(170, 75%, 50%);
-$button-background-color-hover: hsl(170, 80%, 45%);
+$button-background-color-hover: hsl(170, 90%, 40%);
 
 body {
   margin: 0;
@@ -38,10 +38,12 @@ form {
     width: 100%;
     min-height: 116px;
     margin: 0 0 5px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    font: 700 14px $font-family-sans;
+    padding: 0;
+    border: none;
+    font: 700 16px $font-family-sans;
     color: $text-color;
+    background: transparent;
+    outline: none;
   }
 
   .button {
@@ -55,6 +57,7 @@ form {
     font: 700 12px $font-family-sans;
     text-transform: uppercase;
     border-radius: 4px;
+    outline: none;
     &:hover {
       background: $button-background-color-hover;
     }
