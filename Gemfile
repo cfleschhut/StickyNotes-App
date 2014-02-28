@@ -3,7 +3,15 @@ source 'https://rails-assets.org/'
 
 gem 'rails', '4.0.3'
 
-gem 'sqlite3'
+group :development do
+  gem 'sqlite3'
+end
+
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+  gem 'thin'
+end
 
 gem 'haml-rails'
 gem 'sass-rails', '~> 4.0.0'
