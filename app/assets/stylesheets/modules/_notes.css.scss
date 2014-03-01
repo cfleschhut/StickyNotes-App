@@ -22,6 +22,14 @@ $note-background-color-02: hsl(60, 100%, 75%);
   margin: 0 1% 20px;
   padding: 20px;
 
+  @include media($desktop) {
+    width: 23%;
+  }
+
+  @include media($tablet) {
+    width: 31%;
+  }
+
   @include media($mobile) {
     width: 280px;
     height: 280px;
