@@ -63,11 +63,10 @@ $(document).ready(function() {
         datetime = element.attr('datetime');
       var update = function() {
         var new_value = moment(datetime).fromNow();
-        console.log(new_value);
         element.html(new_value);
+        setTimeout(update, 1000);
       };
       update();
-      setInterval(update, 1000);
     }
   });
 
