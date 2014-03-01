@@ -1,5 +1,5 @@
 header {
-  background: #333;
+  background: #444;
   overflow: hidden;
 
   h1 {
@@ -14,5 +14,17 @@ header {
       color: #eee;
       text-decoration: none;
     }
+  }
+}
+
+.fixed-header {
+  padding-top: 44px;
+
+  .header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
   }
 }
