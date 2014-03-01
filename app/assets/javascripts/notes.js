@@ -199,7 +199,7 @@ $(document).ready(function() {
   });
 
 
-  var app = new App();
+  window.app = new App();
   Backbone.history.start({
     pushState: true
   });
