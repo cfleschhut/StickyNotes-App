@@ -3,6 +3,10 @@
 $note-background-color-01: hsl(60, 100%, 90%);
 $note-background-color-02: hsl(60, 100%, 75%);
 
+#notes {
+  overflow: hidden;
+}
+
 .notes {
   margin: 0;
   padding: 0;
