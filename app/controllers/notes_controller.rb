@@ -15,6 +15,10 @@ class NotesController < ApplicationController
     render json: Note.update(params[:id], note_params)
   end
 
+  def destroy
+    render json: Note.destroy(params[:id])
+  end
+
   private
     def note_params
       params.require(:note).permit(:title)
