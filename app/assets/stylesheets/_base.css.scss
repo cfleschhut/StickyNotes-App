@@ -1,0 +1,9 @@
+@import 'globals/*';
+
+body {
+  margin: 0;
+  padding: 0;
+  font: 100%/1.2 $font-family-sans;
+  color: $text-color;
+  background: #fff;
+}

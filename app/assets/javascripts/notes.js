@@ -63,6 +63,7 @@ $(document).ready(function() {
         datetime = element.attr('datetime');
       var update = function() {
         var new_value = moment(datetime).fromNow();
+        console.log(new_value);
         element.html(new_value);
       };
       update();

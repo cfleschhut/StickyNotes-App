@@ -1,0 +1,24 @@
+.button {
+  display: inline-block;
+  margin: 0;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font: 700 12px $font-family-sans;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  background: $button-background-color;
+  outline: none;
+  -webkit-appearance: button;
+}
+
+.button-block {
+  width: 100%;
+}
+
+.button-disabled {
+  opacity: 0.4;
+  background: $button-background-color-disabled;
+}

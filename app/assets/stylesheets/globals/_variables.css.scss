@@ -1,0 +1,7 @@
+$font-family-sans: 'Helvetica Neue', Arial, sans-serif;
+$font-size-small: 12px;
+$text-color: #333;
+
+$button-background-color: hsl(170, 75%, 50%);
+$button-background-color-hover: hsl(170, 90%, 40%);
+$button-background-color-disabled: desaturate($button-background-color, 25%);

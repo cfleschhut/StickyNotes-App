@@ -1,0 +1,13 @@
+form {
+  textarea {
+    width: 100%;
+    min-height: 116px;
+    margin: 0 0 5px;
+    padding: 0;
+    border: none;
+    font: 700 16px $font-family-sans;
+    color: $text-color;
+    background: transparent;
+    outline: none;
+  }
+}
