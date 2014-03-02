@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require handlebars.runtime
+//= require_tree ./templates
 //= require underscore
 //= require backbone
 //= require moment

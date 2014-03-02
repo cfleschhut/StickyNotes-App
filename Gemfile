@@ -24,6 +24,8 @@ gem 'jbuilder', '~> 1.2'
 gem 'bourbon'
 gem 'neat'
 
+gem 'handlebars_assets'
+
 gem 'rails-assets-underscore'
 gem 'rails-assets-backbone'
 gem 'rails-assets-moment'

@@ -36,7 +36,7 @@ $(document).ready(function() {
   var NoteView = Backbone.View.extend({
     tagName: 'li',
     className: 'note',
-    template: _.template($('#template-note').html()),
+    template: HandlebarsTemplates['notes/index'],
     events: {
       'click .note-permalink': 'navigate'
     },
@@ -104,7 +104,7 @@ $(document).ready(function() {
       class: 'note',
       id: 'note-new'
     },
-    template: _.template($('#template-new-note').html()),
+    template: HandlebarsTemplates['notes/new'],
     events: {
       'keyup textarea': 'validateTextarea',
       'submit form': 'createNote'

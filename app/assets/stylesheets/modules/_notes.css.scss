@@ -18,6 +18,7 @@ $note-background-color-02: hsl(60, 100%, 75%);
   @include linear-gradient($note-background-color-01, $note-background-color-02);
   position: relative;
   width: 18%;
+  min-height: 200px;
   float: left;
   margin: 0 1% 20px;
   padding: 20px;
@@ -35,7 +36,7 @@ $note-background-color-02: hsl(60, 100%, 75%);
     height: 280px;
     float: none;
     margin: 0 auto 20px;
-    textarea {
+    .note-new-form textarea {
       min-height: 196px;
     }
   }
@@ -62,4 +63,12 @@ $note-background-color-02: hsl(60, 100%, 75%);
   font-size: $font-size-small;
   color: $text-color;
   text-decoration: none;
+}
+
+.note-new-form textarea {
+  min-height: 116px;
+  margin-bottom: 5px;
+  border: none;
+  font: 700 16px $font-family-sans;
+  background: transparent;
 }

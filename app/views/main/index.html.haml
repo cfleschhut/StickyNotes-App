@@ -1,14 +1,3 @@
-%script{ type: 'text/template', id: 'template-new-note' }
-  %form.form.note-new-form
-    %textarea{ name: 'title', placeholder: 'New Note…', autofocus: 'autofocus' }
-    %input{ type: 'submit', value: 'Save', disabled: 'disabled', class: 'button button-block button-disabled' }
-
-%script{ type: 'text/template', id: 'template-note' }
-  %time.note-datetime{ datetime: '{{ created_at }}' }
-    {{ created_at }}
-  %h3.note-title
-    {{ title }}
-  %a.note-permalink{ href: '/notes/{{ id }}', title: 'Permalink' }
-    &infin;
-
-= content_tag 'div', 'Loading…', id: 'notes', data: { notes: Note.all }
+= content_tag 'div', id: 'notes', data: { notes: Note.all } do
+  %p
+    Loading…
