@@ -8,6 +8,7 @@ $font-size-default: 16px;
 $line-height-default: 1.2;
 $text-color: #333;
 
-$button-background-color: hsl(170, 75%, 50%);
-$button-background-color-hover: hsl(170, 90%, 40%);
-$button-background-color-disabled: desaturate($button-background-color, 25%);
+$button-background-color: #ccc;
+$button-background-color-primary: hsl(170, 75%, 50%);
+$button-background-color-primary-hover: hsl(170, 90%, 40%);
+$button-background-color-primary-disabled: desaturate($button-background-color-primary, 25%);

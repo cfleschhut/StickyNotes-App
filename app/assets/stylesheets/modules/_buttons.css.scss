@@ -11,14 +11,27 @@
   text-transform: uppercase;
   background: $button-background-color;
   outline: none;
-  -webkit-appearance: button;
+  -webkit-appearance: none;
+  &:hover {
+    background: darken($button-background-color, 20%);
+  }
 }
 
-.button-block {
-  width: 100%;
+.button-primary {
+  background: $button-background-color-primary;
+  &:hover {
+    background: darken($button-background-color-primary, 7%);
+  }
 }
 
 .button-disabled {
   opacity: 0.4;
-  background: $button-background-color-disabled;
+  background: $button-background-color-primary-disabled;
+  &:hover {
+    background: $button-background-color-primary-disabled;
+  }
+}
+
+.button-block {
+  width: 100%;
 }

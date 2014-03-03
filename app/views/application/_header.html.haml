@@ -1,4 +1,7 @@
 %header.header
   .container
-    %h1
+    %h1#logo
       = link_to t('page_title'), root_path
+
+    = link_to 'Sign in', '#', class: 'button auth_btn', id: 'sign_in'
+    / = link_to 'Sign out', '#', class: 'button auth_btn', id: 'sign_out'

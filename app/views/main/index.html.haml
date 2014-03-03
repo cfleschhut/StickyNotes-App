@@ -1,3 +1,6 @@
-= content_tag 'div', id: 'notes', data: { notes: Note.all } do
-  %p
-    Loading…
+.col
+  %h2
+    Public notes
+  = content_tag 'div', id: 'notes', data: { notes: Note.all } do
+    %p
+      Loading…
