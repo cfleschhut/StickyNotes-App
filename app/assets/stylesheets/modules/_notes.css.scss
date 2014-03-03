@@ -18,7 +18,7 @@ $note-background-color-02: hsl(60, 100%, 75%);
   @include linear-gradient($note-background-color-01, $note-background-color-02);
   position: relative;
   width: 18%;
-  min-height: 200px;
+  height: 200px;
   float: left;
   margin: 0 1% 20px;
   padding: 20px;
