@@ -3,5 +3,11 @@
     %h1#logo
       = link_to t('page_title'), root_path
 
-    = link_to 'Sign in', '#', class: 'button auth_btn', id: 'sign_in'
-    / = link_to 'Sign out', '#', class: 'button auth_btn', id: 'sign_out'
+    #sign_in_out
+      - if current_user
+        %p.header-text
+          = current_user.name
+          &middot;
+          = link_to 'Sign out', signout_path, id: 'sign_out'
+      - else
+        = link_to 'Sign in', 'auth/facebook', class: 'button', id: 'sign_in'

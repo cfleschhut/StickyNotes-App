@@ -163,6 +163,7 @@ $(document).ready(function() {
   var App = Backbone.Router.extend({
     routes: {
       '': 'index',
+      '_=_': 'index',
       'notes/:id': 'show'
     },
 
