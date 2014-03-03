@@ -21,7 +21,14 @@ var Note = Backbone.Model.extend({
 
 var NoteList = Backbone.Collection.extend({
   model: Note,
-  url: 'api/notes'
+  url: 'api/notes',
+
+  initialize: function() {
+    this.on('remove', this.hideModel);
+  },
+  hideModel: function(model) {
+    model.trigger('hide');
+  }
 
   // comparator: function(note) {
   //   return -note.get('id');
@@ -42,6 +49,7 @@ $(document).ready(function() {
     },
     initialize: function() {
       this.model.on('change', this.render, this);
+      this.model.on('hide', this.remove, this);
       this.model.on('destroy', this.remove, this);
     },
     render: function() {
@@ -80,7 +88,7 @@ $(document).ready(function() {
     },
     render: function() {
       // console.log(this.collection.length);
-      this.collection.forEach(this.addOne, this);
+      this.collection.each(this.addOne, this);
       return this;
     },
     addOne: function(model) {
