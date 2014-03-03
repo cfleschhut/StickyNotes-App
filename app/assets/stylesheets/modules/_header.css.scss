@@ -5,12 +5,11 @@ header {
   h1 {
     float: left;
     margin: 0;
-    font-size: 20px;
-    font-weight: 300;
-
     a {
       display: block;
       padding: 10px;
+      font-size: 20px;
+      font-weight: $font-weight-light;
       color: #eee;
       text-decoration: none;
     }
