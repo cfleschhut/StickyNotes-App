@@ -168,7 +168,7 @@ $(document).ready(function() {
 
   // Router
 
-  var App = Backbone.Router.extend({
+  window.notesApp = new (Backbone.Router.extend({
     routes: {
       '': 'index',
       '_=_': 'index',
@@ -180,6 +180,10 @@ $(document).ready(function() {
 
       this.notes = new NoteList();
       this.notes.reset($('#notes').data('notes'));
+    },
+
+    start: function() {
+      Backbone.history.start({ pushState: true });
     },
 
     index: function() {
@@ -205,12 +209,8 @@ $(document).ready(function() {
       });
       $('#notes').html(view.render().el);
     }
-  });
+  }));
 
-
-  window.app = new App();
-  Backbone.history.start({
-    pushState: true
-  });
+  notesApp.start();
 
 });
