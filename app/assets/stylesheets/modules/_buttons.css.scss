@@ -1,9 +1,9 @@
 .button {
   display: inline-block;
   margin: 0;
-  padding: 11px 20px;
+  padding: 10px 20px;
   border: none;
-  border-radius: 4px;
+  border-radius: $border-radius-default;
   color: #fff;
   font: $font-weight-bold 12px $font-family-sans;
   text-decoration: none;
@@ -34,4 +34,9 @@
 
 .button-block {
   width: 100%;
+}
+
+.btn-small {
+  padding: 8px 12px;
+  font-size: 12px;
 }

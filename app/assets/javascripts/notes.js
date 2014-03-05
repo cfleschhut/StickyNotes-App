@@ -194,10 +194,10 @@ $(document).ready(function() {
       });
       $('#notes').html(this.notesView.render().el);
 
-      var formView = new NoteFormView({
-        collection: this.notes
-      });
-      $('.notes').prepend(formView.render().el);
+      // var formView = new NoteFormView({
+      //   collection: this.notes
+      // });
+      // $('.notes').prepend(formView.render().el);
     },
 
     show: function(id) {

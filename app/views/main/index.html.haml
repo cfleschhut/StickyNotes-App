@@ -1,6 +1,10 @@
 .col
-  %h2
-    Public notes
+
+  .section-header
+    %h2
+      Public notes
+    = link_to '+ Add note', '#', id: 'note-new-button', class: 'button btn-small button-primary'
+
   = content_tag 'div', id: 'notes', data: { notes: Note.all } do
     %p
       Loading…

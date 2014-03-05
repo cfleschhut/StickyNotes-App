@@ -1,0 +1,13 @@
+.section-header {
+  margin: 0 0 20px;
+  padding: 10px 0;
+  @include border-bottom-shadowed;
+
+  h2 {
+    float: left;
+  }
+
+  .btn-small {
+    margin-left: 20px;
+  }
+}
