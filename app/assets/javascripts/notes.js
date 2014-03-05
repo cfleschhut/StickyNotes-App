@@ -106,7 +106,29 @@ $(document).ready(function() {
   });
 
 
-  var NoteFormView = Backbone.View.extend({
+  var NoteNewBtnView = Backbone.View.extend({
+    events: {
+      'click': 'startInsertMode'
+    },
+    startInsertMode: function(ev) {
+      ev.preventDefault();
+
+      if (!$('#note-new').length) {
+        $('#note-new-button').addClass('button-disabled');
+        $('.notes').addClass('is-inserting-new-note');
+
+        var formView = new NoteNewFormView({
+          collection: this.collection
+        });
+        $('.notes').prepend(
+          $(formView.render().el).hide().delay(500).fadeIn(250)
+        );
+      }
+    }
+  });
+
+
+  var NoteNewFormView = Backbone.View.extend({
     tagName: 'li',
     attributes: {
       class: 'note',
@@ -121,6 +143,9 @@ $(document).ready(function() {
     render: function() {
       this.$el.html(this.template());
       return this;
+    },
+    remove: function() {
+      this.$el.remove();
     },
     validateTextarea: function(ev) {
       var textarea = ev.target;
@@ -146,6 +171,14 @@ $(document).ready(function() {
       $('#note-new form')[0].reset();
       this.submitBtnDisable();
     },
+    endInsertMode: function() {
+      $('#note-new-button').removeClass('button-disabled');
+      $('.notes').removeClass('is-inserting-new-note');
+
+      this.$el.fadeOut(100, function() {
+        this.remove();
+      });
+    },
     createNote: function(ev) {
       ev.preventDefault();
       var that = this,
@@ -156,7 +189,7 @@ $(document).ready(function() {
         wait: true,
         success: function() {
           console.log('success');
-          that.resetForm();
+          that.endInsertMode();
         },
         error: function() {
           console.log('error');
@@ -194,10 +227,10 @@ $(document).ready(function() {
       });
       $('#notes').html(this.notesView.render().el);
 
-      // var formView = new NoteFormView({
-      //   collection: this.notes
-      // });
-      // $('.notes').prepend(formView.render().el);
+      var noteNewBtnView = new NoteNewBtnView({
+        collection: this.notes,
+        el: $('#note-new-button')
+      });
     },
 
     show: function(id) {

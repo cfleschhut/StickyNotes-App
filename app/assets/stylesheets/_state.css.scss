@@ -1,0 +1,26 @@
+.is-inserting-new-note {
+
+  #note-new {
+    @include media($mobile) {
+      left: 50%;
+      margin-left: -($note-width-mobile/2);
+    }
+  }
+
+  .note:nth-child(2) {
+    @include transition(all 400ms ease-in-out);
+
+    margin-left: $note-width-desktop-wide + 3%;
+    @include media($desktop) {
+      margin-left: $note-width-desktop + 3%;
+    }
+    @include media($tablet) {
+      margin-left: $note-width-tablet + 3%;
+    }
+    @include media($mobile) {
+      margin-left: auto;
+      margin-top: $note-width-mobile + 20px;
+    }
+  }
+
+}

@@ -1,5 +1,15 @@
 /* Notes */
 
+@function note-width($width, $margin: $note-margin) {
+  @return $width - (2 * $margin);
+}
+
+$note-margin: 1%;
+$note-width-desktop-wide: note-width(20%, $note-margin);
+$note-width-desktop: note-width(25%, $note-margin);
+$note-width-tablet: note-width(33%, $note-margin);
+$note-width-mobile: note-width(280px, 0);
+
 $note-background-color-01: hsl(60, 100%, 90%);
 $note-background-color-02: hsl(60, 100%, 75%);
 
@@ -9,6 +19,7 @@ $note-background-color-02: hsl(60, 100%, 75%);
 }
 
 .notes {
+  position: relative;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -18,24 +29,24 @@ $note-background-color-02: hsl(60, 100%, 75%);
 .note {
   @include linear-gradient($note-background-color-01, $note-background-color-02);
   position: relative;
-  width: 18%;
+  width: $note-width-desktop-wide;
   height: 200px;
   float: left;
   margin: 0 1% 20px;
   padding: 20px;
 
   @include media($desktop) {
-    width: 23%;
+    width: $note-width-desktop;
   }
 
   @include media($tablet) {
-    width: 31%;
+    width: $note-width-tablet;
   }
 
   @include media($mobile) {
-    width: 280px;
-    height: 280px;
     float: none;
+    width: $note-width-mobile;
+    height: $note-width-mobile;
     margin: 0 auto 20px;
     .note-new-form textarea {
       min-height: 198px;
@@ -70,6 +81,13 @@ $note-background-color-02: hsl(60, 100%, 75%);
   font-size: $font-size-small;
   color: $text-color;
   text-decoration: none;
+}
+
+#note-new {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 
 .note-new-form textarea {
