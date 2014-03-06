@@ -2,3 +2,28 @@ main {
   background-image: url(asset_path('texture/subtle_pattern_squairy.png'));
   background-size: 200px;
 }
+
+
+// fade in notes gradually
+
+@mixin fadeIn($duration: 500ms, $delay: 0ms) {
+  @include transition(opacity $duration);
+  @include transition-delay($delay);
+}
+
+$note-count: 19;
+$note-transition-duration: 500ms;
+$note-transition-delay-base: 500ms;
+$note-transition-delay-increment: 100ms;
+
+.note {
+  @include fadeIn($note-transition-duration, $note-transition-delay-base + $note-count * $note-transition-delay-increment);
+}
+
+@for $i from 0 through $note-count {
+  .note:nth-child(#{$i + 1}) {
+
+    $delay-increment: $note-transition-delay-base + ($i * $note-transition-delay-increment);
+    @include fadeIn($note-transition-duration, $delay-increment);
+  }
+}

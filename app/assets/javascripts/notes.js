@@ -42,7 +42,7 @@ $(document).ready(function() {
 
   var NoteView = Backbone.View.extend({
     tagName: 'li',
-    className: 'note',
+    className: 'note is-hidden',
     template: HandlebarsTemplates['notes/index'],
     events: {
       'click .note-permalink': 'navigate'
@@ -54,11 +54,18 @@ $(document).ready(function() {
     },
     render: function() {
       this.$el.html(this.template(this.model.attributes));
+      this.unhide();
       this.updateTime(this.$el.find('time'));
       return this;
     },
     remove: function() {
       this.$el.remove();
+    },
+    unhide: function() {
+      var that = this;
+      setTimeout(function() {
+        that.$el.removeClass('is-hidden');
+      }, 0);
     },
     navigate: function(ev) {
       ev.preventDefault();
