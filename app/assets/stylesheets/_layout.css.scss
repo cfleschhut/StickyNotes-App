@@ -8,3 +8,27 @@
 .col {
   padding: 0 10px;
 }
+
+
+/* Grid Columns */
+
+@mixin columns-5 {
+  float: left;
+  width: $one-fifth;
+  padding: 0 10px;
+}
+@mixin columns-4 {
+  float: left;
+  width: $one-fourth;
+  padding: 0 10px;
+}
+@mixin columns-3 {
+  float: left;
+  width: $one-third;
+  padding: 0 10px;
+}
+@mixin columns-1 {
+  float: none;
+  width: 100%;
+  padding: 0 10px;
+}

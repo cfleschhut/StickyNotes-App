@@ -1,20 +1,15 @@
 /* Notes */
 
-@function note-width($width, $margin: $note-margin) {
-  @return $width - (2 * $margin);
-}
-
-$note-margin: 1%;
-$note-width-desktop-wide: note-width(20%, $note-margin);
-$note-width-desktop: note-width(25%, $note-margin);
-$note-width-tablet: note-width(33%, $note-margin);
-$note-width-mobile: note-width(280px, 0);
+$note-width-desktop-wide: $one-fifth;
+$note-width-desktop: $one-fourth;
+$note-width-tablet: $one-third;
+$note-width-mobile: 320px;
 
 $note-background-color-01: hsl(60, 100%, 90%);
 $note-background-color-02: hsl(60, 100%, 75%);
 
 #notes {
-  margin: 0 -1%;
+  margin: 0 -10px;
   overflow: hidden;
 }
 
@@ -27,34 +22,40 @@ $note-background-color-02: hsl(60, 100%, 75%);
 }
 
 .note {
-  @include linear-gradient($note-background-color-01, $note-background-color-02);
-  position: relative;
-  width: $note-width-desktop-wide;
-  height: 200px;
-  float: left;
-  margin: 0 1% 20px;
-  padding: 20px;
+  @include columns-5;
 
   @include media($desktop) {
-    width: $note-width-desktop;
+    @include columns-4;
   }
 
   @include media($tablet) {
-    width: $note-width-tablet;
+    @include columns-3;
   }
 
   @include media($mobile) {
-    float: none;
-    width: $note-width-mobile;
-    height: $note-width-mobile;
-    margin: 0 auto 20px;
-    .note-new-form textarea {
-      min-height: 198px;
+    @include columns-1;
+
+    .note-wrapper {
+      margin: 0 auto 20px;
+      max-width: $note-width-mobile;
+      height: $note-width-mobile;
     }
     .note-title {
-      height: 212px;
+      height: auto;
+    }
+    .note-new-form textarea {
+      min-height: 240px;
     }
   }
+}
+
+.note-wrapper {
+  @include linear-gradient($note-background-color-01, $note-background-color-02);
+  @include box-shadow(2px 2px 2px rgba(0, 0, 0, 0.15));
+  position: relative;
+  margin: 0 0 20px;
+  padding: 20px;
+  height: 200px;
 }
 
 .note-datetime {
