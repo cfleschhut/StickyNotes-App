@@ -11,16 +11,16 @@ main {
   @include transition-delay($delay);
 }
 
-$note-count: 19;
-$note-transition-duration: 500ms;
-$note-transition-delay-base: 500ms;
-$note-transition-delay-increment: 100ms;
+$note-count: 20;
+$note-transition-duration: 300ms;
+$note-transition-delay-base: 300ms;
+$note-transition-delay-increment: 50ms;
 
 .note {
   @include fadeIn($note-transition-duration, $note-transition-delay-base + $note-count * $note-transition-delay-increment);
 }
 
-@for $i from 0 through $note-count {
+@for $i from 0 through ($note-count - 1) {
   .note:nth-child(#{$i + 1}) {
 
     $delay-increment: $note-transition-delay-base + ($i * $note-transition-delay-increment);
