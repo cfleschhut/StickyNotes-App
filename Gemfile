@@ -33,3 +33,6 @@ gem 'rails-assets-moment'
 gem 'quiet_assets'
 
 gem 'omniauth-facebook'
+
+gem 'figaro'
+gem 'newrelic_rpm'
