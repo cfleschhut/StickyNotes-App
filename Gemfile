@@ -25,8 +25,8 @@ gem 'jquery-rails'
 
 gem 'jbuilder'
 
-gem 'bourbon'
-gem 'neat'
+gem 'bourbon', '3.2.4'
+gem 'neat', '1.9.1'
 
 gem 'handlebars_assets'
 

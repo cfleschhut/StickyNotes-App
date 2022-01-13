@@ -3,7 +3,6 @@
 }
 
 .is-inserting-new-note {
-
   .note:nth-child(2) {
     @include transition(margin 300ms ease-in-out);
 
@@ -19,5 +18,4 @@
       margin-top: $note-width-mobile + 20px;
     }
   }
-
 }

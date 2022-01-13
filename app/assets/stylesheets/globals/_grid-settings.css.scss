@@ -1,6 +1,6 @@
 @import 'neat-helpers';
 
-// $visual-grid: true;
+$visual-grid: true;
 
 $mobile: new-breakpoint(max-width 480px 4);
 $tablet: new-breakpoint(max-width 760px 8);
